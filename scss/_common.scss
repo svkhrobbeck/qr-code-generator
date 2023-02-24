@@ -1,0 +1,100 @@
+/* CUSTOM PROPS */
+:root {
+  --primary-bg-color: #fff;
+  --text-color: #000;
+  --accent-color: ;
+}
+
+/* GLOBAL */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*:focus {
+  outline: 2px dashed var(--text-color);
+  outline-offset: 3px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  height: 100%;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--primary-bg-color);
+  display: flex;
+  flex-direction: column;
+}
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+  @media only screen and (min-width: $tablet) {
+    width: 12px;
+  }
+}
+
+::-webkit-scrollbar-track {
+  @media only screen and (min-width: $tablet) {
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px grey;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  @media only screen and (min-width: $tablet) {
+    background: rgb(110, 110, 110);
+    border-radius: 10px;
+
+    &:hover {
+      background: rgb(110, 110, 110);
+    }
+  }
+}
+
+/* VISUALLY HIDDEN */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  flex-grow: 1;
+}
+
+/* RETINA BGS */
+// @media only screen and (-webkit-min-device-pixel-ratio: 2),
+// only screen and (min--moz-device-pixel-ratio: 2),
+// only screen and (-o-min-device-pixel-ratio: 2/1),
+// only screen and (min-device-pixel-ratio: 2),
+// only screen and (min-resolution: 192dpi),
+// only screen and (min-resolution: 2dppx) {}
