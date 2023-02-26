@@ -94,6 +94,18 @@ body {
   justify-content: center;
 }
 
+.main-text {
+  position: absolute;
+  bottom: 100px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.main-link {
+  color: #000;
+}
+
 /* CARD */
 .card {
   max-width: 400px;
