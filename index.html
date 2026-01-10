@@ -2,67 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QR Code Generator</title>
 
-    <!-- Google FOnts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Favicon -->
-    <!-- <link rel="shortcut icon" href="images/"> -->
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
-
   <body>
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-      <div class="card" data-card>
-        <header class="card__header">
-          <h2 class="card__title">QR Code Generator</h2>
-          <p class="card__text">Past a URL or enter text to create QR Code</p>
-        </header>
-        <form class="card__form form" method="POST" data-form>
-          <input
-            class="form__input"
-            type="text"
-            name="text"
-            placeholder="Enter text or URL"
-            autocomplete="off"
-          />
-          <button class="form__btn" type="submit" data-submit-btn>
-            Generate QR Code
-          </button>
-        </form>
-        <div class="card__qr-code">
-          <img
-            class="card__qr-img"
-            alt="QR Code"
-            width="250"
-            height="250"
-            data-qr-img
-          />
-        </div>
-      </div>
-
-      <p class="main-text">
-        Link to
-        <a class="main-link" href="https://sbk-qr-code-reader.netlify.app">
-          QR Code Reader
-        </a>
-      </p>
-    </main>
-    <!-- /MAIN CONTENT -->
-
-    <!-- SCRIPTS -->
-    <script src="js/main.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

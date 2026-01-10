@@ -1,6 +1,9 @@
+@use "variables";
+
 /* CUSTOM PROPS */
 :root {
   --primary-bg-color: #3498db;
+  --primary-red-color: #e74c3c;
   --text-color: #000;
   --accent-color: ;
 }
@@ -47,27 +50,34 @@ body {
   flex-direction: column;
 }
 
+#root {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 /* SCROLL BAR */
-@media only screen and (min-width: 768px) {
-  ::-webkit-scrollbar {
+::-webkit-scrollbar {
+  @media only screen and (min-width: variables.$tablet) {
     width: 12px;
   }
 }
 
-@media only screen and (min-width: 768px) {
-  ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
+  @media only screen and (min-width: variables.$tablet) {
     border-radius: 8px;
     box-shadow: inset 0 0 5px grey;
   }
 }
 
-@media only screen and (min-width: 768px) {
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
+  @media only screen and (min-width: variables.$tablet) {
     background: rgb(110, 110, 110);
     border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(110, 110, 110);
+
+    &:hover {
+      background: rgb(110, 110, 110);
+    }
   }
 }
 
@@ -80,8 +90,7 @@ body {
   border: 0;
   padding: 0;
   white-space: nowrap;
-  -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
@@ -108,34 +117,29 @@ body {
 
 /* CARD */
 .card {
-  max-width: 400px;
+  display: flex;
+  max-width: 600px;
   width: 100%;
-  height: 235px;
+  // height: 235px;
   padding: 20px;
   overflow: hidden;
   background-color: #fff;
-  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-radius: 5px;
   transition: height 0.2s ease;
-}
-.card.active {
-  height: 580px;
-}
-.card.active .card__qr-code {
-  opacity: 1;
-  pointer-events: auto;
-}
-@media only screen and (max-width: 576px) {
-  .card.active {
-    max-width: 90%;
-    height: 610px;
+
+  &.active {
+    // height: 580px;
+
+    @media only screen and (max-width: variables.$mobile) {
+      max-width: 90%;
+      height: 610px;
+    }
   }
-}
-@media only screen and (max-width: 576px) {
-  .card {
+
+  @media only screen and (max-width: variables.$mobile) {
     max-width: 90%;
     height: 250px;
   }
@@ -156,48 +160,109 @@ body {
 }
 
 .card__form {
+  width: calc(100% - 30px);
   margin-bottom: 30px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
 }
+
+.card__inner {
+  width: 100%;
+}
+
+.card__tab {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  &.activeTab {
+    display: flex;
+  }
+}
+
+// TABS
+.tabs {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.tabs__btn {
+  border: none;
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  &--active {
+    background-color: var(--primary-bg-color);
+    color: #fff;
+  }
+}
+
+// FORM
 
 .form__input {
   border: 1px solid var(--primary-bg-color);
   padding: 10px 20px;
   border-radius: 5px;
-  margin-bottom: 20px;
-  width: 70%;
+  width: 100%;
+
+  &.with-margin {
+    margin-bottom: 20px;
+  }
 }
 
 .form__btn {
   border: none;
-  background-color: var(--primary-bg-color);
+  white-space: nowrap;
   padding: 10px 20px;
   color: #fff;
   border-radius: 5px;
-  width: 70%;
+
+  &--blue {
+    background-color: var(--primary-bg-color);
+  }
+
+  &--red {
+    background-color: var(--primary-red-color);
+  }
 }
 
 .card__qr-code {
   pointer-events: none;
-  opacity: 0;
-  border: 1px solid #ccc;
-  padding: 30px 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+    border: 1px solid #ccc;
+    padding: 30px 30px;
+  }
 }
 
 .card__qr-img {
-  max-width: 250px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
   width: 100%;
   height: auto;
 }
-
-/* CONTAINER */
-.container {
-  width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 20px;
-}/*# sourceMappingURL=main.css.map */
